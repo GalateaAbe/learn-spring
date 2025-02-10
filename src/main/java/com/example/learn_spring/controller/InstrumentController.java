@@ -2,7 +2,6 @@ package com.example.learn_spring.controller;
 
 import com.example.learn_spring.persistence.model.Instrument;
 import com.example.learn_spring.persistence.repo.InstrumentRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ public class InstrumentController {
     private InstrumentRepository instrumentRepository;
 
     @GetMapping
-    public Iterable<Instrument> findAll(){
+    public Iterable<Instrument> findAllInstruments(){
         return instrumentRepository.findAll();
     }
 
@@ -28,8 +27,10 @@ public class InstrumentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Instrument create(@RequestBody Instrument instrument){
-        return instrumentRepository.save(instrument);
+    public void create(@RequestBody List<Instrument> instruments){
+        for (Instrument instrument: instruments) {
+            instrumentRepository.save(instrument);
+        }
     }
 
 

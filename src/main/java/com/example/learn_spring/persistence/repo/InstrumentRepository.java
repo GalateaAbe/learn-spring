@@ -8,7 +8,4 @@ import java.util.List;
 public interface InstrumentRepository extends CrudRepository<Instrument,Long> {
     List<Instrument> findByTicker(String ticker);
 
-    default Instrument save(Instrument instrument) {
-        return null;
-    }
 }
