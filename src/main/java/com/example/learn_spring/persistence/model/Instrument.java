@@ -2,15 +2,15 @@ package com.example.learn_spring.persistence.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table()
 @Getter @Setter @NoArgsConstructor
 public class Instrument {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, unique = true, updatable = false)
     private String ticker;

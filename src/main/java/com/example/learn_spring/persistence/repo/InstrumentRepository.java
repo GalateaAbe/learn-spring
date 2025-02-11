@@ -6,6 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface InstrumentRepository extends CrudRepository<Instrument,Long> {
-    List<Instrument> findByTicker(String ticker);
-
+    Instrument findByTicker(String ticker);
 }

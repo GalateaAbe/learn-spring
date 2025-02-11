@@ -9,3 +9,15 @@
 --INSERT INTO Instrument (id,ticker, instrument_name, state_of_incorporation) VALUES (9,'GS','Goldman Sachs','DE')
 --INSERT INTO Instrument (id,ticker, instrument_name, state_of_incorporation) VALUES (10,'LLY','Eli Lilly','IN')
 --INSERT INTO Instrument (id,ticker, instrument_name, state_of_incorporation) VALUES (11,'AVGO','Broadcom','DE')
+
+{"ticker":"AAPL"      ,"instrumentName":"Apple"                ,"stateOfIncorporation":"CA"},
+{"ticker":"GOOG"      ,"instrumentName":"Alphabet"             ,"stateOfIncorporation":"DE"},
+{"ticker":"TSLA"      ,"instrumentName":"Tesla"                ,"stateOfIncorporation":"DE"},
+{"ticker":"MSFT"      ,"instrumentName":"Microsoft"            ,"stateOfIncorporation":"WA"},
+{"ticker":"NVDA"      ,"instrumentName":"Nvidia"               ,"stateOfIncorporation":"DE"},
+{"ticker":"AMZN"      ,"instrumentName":"Amazon"               ,"stateOfIncorporation":"DE"},
+{"ticker":"META"      ,"instrumentName":"Meta Platforms"       ,"stateOfIncorporation":"DE"},
+{"ticker":"BRK-A"     ,"instrumentName":"Berkshire Hathaway"   ,"stateOfIncorporation":"DE"},
+{"ticker":"GS"        ,"instrumentName":"Goldman Sachs"        ,"stateOfIncorporation":"DE"},
+{"ticker":"LLY"       ,"instrumentName":"Eli Lilly"            ,"stateOfIncorporation":"IN"},
+{"ticker":"AVGO"      ,"instrumentName":"Broadcom"             ,"stateOfIncorporation":"DE"}
