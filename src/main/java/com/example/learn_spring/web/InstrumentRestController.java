@@ -1,7 +1,7 @@
-package com.example.learn_spring.controller;
+package com.example.learn_spring.web;
 
-import com.example.learn_spring.controller.exception.InstrumentIdMismatchException;
-import com.example.learn_spring.controller.exception.InstrumentNotFoundException;
+import com.example.learn_spring.web.exception.InstrumentIdMismatchException;
+import com.example.learn_spring.web.exception.InstrumentNotFoundException;
 import com.example.learn_spring.persistence.model.Instrument;
 import com.example.learn_spring.persistence.repo.InstrumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.example.learn_spring.controller;
+package com.example.learn_spring.web;
 
-import com.example.learn_spring.controller.exception.InstrumentIdMismatchException;
-import com.example.learn_spring.controller.exception.InstrumentNotFoundException;
+import com.example.learn_spring.web.exception.InstrumentIdMismatchException;
+import com.example.learn_spring.web.exception.InstrumentNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;

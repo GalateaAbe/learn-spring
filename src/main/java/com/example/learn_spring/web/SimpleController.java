@@ -1,4 +1,4 @@
-package com.example.learn_spring.controller;
+package com.example.learn_spring.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
