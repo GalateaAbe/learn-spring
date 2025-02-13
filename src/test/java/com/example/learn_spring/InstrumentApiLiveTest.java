@@ -1,19 +1,15 @@
 package com.example.learn_spring;
 
-import com.example.learn_spring.persistence.model.Instrument;
+import com.example.learn_spring.instrument.Instrument;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.text.RandomStringGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

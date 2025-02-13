@@ -1,64 +1,65 @@
 package com.example.learn_spring.web;
 
-import com.example.learn_spring.web.exception.InstrumentIdMismatchException;
-import com.example.learn_spring.web.exception.InstrumentNotFoundException;
-import com.example.learn_spring.persistence.model.Instrument;
-import com.example.learn_spring.persistence.repo.InstrumentRepository;
+import com.example.learn_spring.instrument.InstrumentService;
+import com.example.learn_spring.web.exception.instrument.InstrumentIdMismatchException;
+import com.example.learn_spring.instrument.Instrument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("api/instruments")
 public class InstrumentRestController {
 
     @Autowired
-    private InstrumentRepository instrumentRepository;
+    private InstrumentService instrumentService;
 
     @GetMapping
-    public Iterable<Instrument> findAllInstruments(){
-        return instrumentRepository.findAll();
+    public Iterable<Instrument> getAllInstruments() {
+        return instrumentService.getAllInstruments();
     }
 
     @GetMapping("/{id}")
-    public Instrument findInstrumentById(@PathVariable Long id){
-        return instrumentRepository.findById(id)
-                .orElseThrow(InstrumentNotFoundException::new);
+    public Instrument findInstrumentById(@PathVariable UUID id) {
+        return instrumentService.getInstrumentById(id);
     }
 
     @GetMapping("/ticker/{ticker}")
-    public Instrument findInstrumentByTicker(@PathVariable String ticker){
-        return instrumentRepository.findByTicker(ticker);
+    public Instrument findInstrumentByTicker(@PathVariable String ticker) {
+        return instrumentService.getInstrumentByTicker(ticker);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Instrument create(@RequestBody Instrument instrument){
-        return instrumentRepository.save(instrument);
+    public Instrument createInstrument(@RequestBody Instrument instrument) {
+        return instrumentService.saveInstrument(instrument);
     }
 
     @PostMapping("/bulk")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody List<Instrument> instruments){
-        for (Instrument instrument: instruments) {
-            instrumentRepository.save(instrument);
+    public Iterable<Instrument> createInstruments(@RequestBody List<Instrument> instruments) {
+        ArrayList<Instrument> createdInstruments = new ArrayList<Instrument>();
+        for (Instrument instrument : instruments) {
+            createdInstruments.add(instrumentService.saveInstrument(instrument));
         }
+        return createdInstruments;
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Instrument putInstrumentById(@RequestBody Instrument instrument,
-                                        @PathVariable Long id){
-        if (!Objects.equals(instrument.getId(), id)){
+    public Instrument updateInstrumentById(@RequestBody Instrument instrument,
+                                        @PathVariable UUID id) {
+        if (!Objects.equals(instrument.getId(), id)) {
             throw new InstrumentIdMismatchException(String.format("ID in path %s does not match request body %s",
                     id, instrument.getId()));
         }
-        instrumentRepository.findById(id)
-                .orElseThrow(InstrumentNotFoundException::new);
-        return instrumentRepository.save(instrument);
+        instrumentService.getInstrumentById(id);
+        return instrumentService.saveInstrument(instrument);
     }
 
 //   @PatchMapping("/{id}")
@@ -68,17 +69,15 @@ public class InstrumentRestController {
 //        if (!Objects.equals(instrument.getId(), id)){
 //            throw new InstrumentIdMismatchException();
 //        }
-//       instrumentRepository.findById(id)
+//       instrumentService.getInstrumentById(id)
 //               .orElseThrow(InstrumentNotFoundException::new);
-//        return instrumentRepository.
+//        return instrumentService.
 //   }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteInstrumentById(@PathVariable Long id){
-        instrumentRepository.findById(id)
-                .orElseThrow(InstrumentNotFoundException::new);
-        instrumentRepository.deleteById(id);
+    public void deleteInstrumentById(@PathVariable UUID id) {
+        instrumentService.getInstrumentById(id);
+        instrumentService.deleteInstrumentById(id);
     }
 
 }

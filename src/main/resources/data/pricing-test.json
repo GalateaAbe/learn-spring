@@ -1,0 +1,87 @@
+[
+  {
+    "ticker": "AAPL",
+    "effectiveDate": "2025-01-31",
+    "price": "236"
+  },
+  {
+    "ticker": "AAPL",
+    "effectiveDate": "2025-02-03",
+    "price": "223.01"
+  },
+  {
+    "ticker": "AAPL",
+    "effectiveDate": "2025-02-12",
+    "price": "236.87"
+  },
+  {
+    "ticker": "GOOG",
+    "effectiveDate": "2025-01-31",
+    "price": "205.6"
+  },
+  {
+    "ticker": "GOOG",
+    "effectiveDate": "2025-02-12",
+    "price": "185.43"
+  },
+  {
+    "ticker": "TSLA",
+    "effectiveDate": "2025-01-31",
+    "price": "404.6"
+  },
+  {
+    "ticker": "MSFT",
+    "effectiveDate": "2025-01-31",
+    "price": "415.06"
+  },
+  {
+    "ticker": "MSFT",
+    "effectiveDate": "2025-01-21",
+    "price": "428.5"
+  },
+  {
+    "ticker": "MSFT",
+    "effectiveDate": "2025-02-06",
+    "price": "415.82"
+  },
+  {
+    "ticker": "NVDA",
+    "effectiveDate": "2025-01-31",
+    "price": "120.07"
+  },
+  {
+    "ticker": "AMZN",
+    "effectiveDate": "2025-01-31",
+    "price": "237.68"
+  },
+  {
+    "ticker": "META",
+    "effectiveDate": "2025-01-31",
+    "price": "689.18"
+  },
+  {
+    "ticker": "BRK-A",
+    "effectiveDate": "2025-01-31",
+    "price": "702613.5"
+  },
+  {
+    "ticker": "BRK-A",
+    "effectiveDate": "2025-02-11",
+    "price": "709489"
+  },
+  {
+    "ticker": "GS",
+    "effectiveDate": "2025-01-31",
+    "price": "640.4"
+  },
+  {
+    "ticker": "LLY",
+    "effectiveDate": "2025-01-31",
+    "price": "811.08"
+  },
+  {
+    "ticker": "AVGO",
+    "effectiveDate": "2025-01-31",
+    "price": "221.27"
+  }
+]

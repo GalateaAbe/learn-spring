@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories("com.example.learn_spring.persistence.repo")
-@EntityScan("com.example.learn_spring.persistence.model")
+@EnableJpaRepositories("com.example.learn_spring")
+@EntityScan("com.example.learn_spring")
 @SpringBootApplication
 public class LearnSpringApplication {
 

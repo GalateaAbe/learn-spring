@@ -1,4 +1,4 @@
-package com.example.learn_spring.web.exception;
+package com.example.learn_spring.web.exception.instrument;
 
 import lombok.experimental.StandardException;
 
