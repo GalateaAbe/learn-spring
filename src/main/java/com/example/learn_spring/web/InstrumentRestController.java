@@ -1,13 +1,12 @@
 package com.example.learn_spring.web;
 
 import com.example.learn_spring.instrument.InstrumentService;
-import com.example.learn_spring.web.exception.instrument.InstrumentIdMismatchException;
+import com.example.learn_spring.instrument.exception.InstrumentIdMismatchException;
 import com.example.learn_spring.instrument.Instrument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -43,11 +42,7 @@ public class InstrumentRestController {
     @PostMapping("/bulk")
     @ResponseStatus(HttpStatus.CREATED)
     public Iterable<Instrument> createInstruments(@RequestBody List<Instrument> instruments) {
-        ArrayList<Instrument> createdInstruments = new ArrayList<Instrument>();
-        for (Instrument instrument : instruments) {
-            createdInstruments.add(instrumentService.saveInstrument(instrument));
-        }
-        return createdInstruments;
+        return instrumentService.saveInstruments(instruments);
     }
 
     @PutMapping("/{id}")

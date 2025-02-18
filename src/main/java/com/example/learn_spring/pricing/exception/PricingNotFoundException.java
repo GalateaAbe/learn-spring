@@ -1,4 +1,4 @@
-package com.example.learn_spring.web.exception.pricing;
+package com.example.learn_spring.pricing.exception;
 
 import lombok.experimental.StandardException;
 

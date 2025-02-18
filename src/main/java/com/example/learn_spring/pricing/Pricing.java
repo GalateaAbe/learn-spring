@@ -34,4 +34,10 @@ public class Pricing implements Serializable {
     @Column
     private Double price;
 
+    @Override
+    public String toString(){
+        return String.format("Effective Date: %tF \t, Ticker: %s\t, ID: %s",
+                this.effectiveDate, this.ticker, this.id);
+    }
+
 }

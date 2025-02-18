@@ -1,7 +1,7 @@
-package com.example.learn_spring.web;
+package com.example.learn_spring.pricing;
 
-import com.example.learn_spring.web.exception.instrument.InstrumentIdMismatchException;
-import com.example.learn_spring.web.exception.instrument.InstrumentNotFoundException;
+import com.example.learn_spring.pricing.exception.PricingIdMismatchException;
+import com.example.learn_spring.pricing.exception.PricingNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
@@ -13,16 +13,16 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+public class PricingRestExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler({InstrumentNotFoundException.class})
+    @ExceptionHandler({PricingNotFoundException.class})
     protected ResponseEntity<Object> handleNotFound(
             Exception ex, WebRequest request) {
-                return handleExceptionInternal(ex, "Instrument not found",
-                        new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return handleExceptionInternal(ex, "Price not found",
+                new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
-    @ExceptionHandler({InstrumentIdMismatchException.class,
+    @ExceptionHandler({PricingIdMismatchException.class,
             ConstraintViolationException.class,
             DataIntegrityViolationException.class})
     public ResponseEntity<Object> handleBadRequest(

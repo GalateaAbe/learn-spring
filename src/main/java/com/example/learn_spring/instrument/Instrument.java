@@ -29,7 +29,10 @@ public class Instrument implements Serializable {
     @Column(name = "state_of_incorporation", length = 2)
     private String stateOfIncorporation;
 
-    @OneToMany(mappedBy = "ticker")
-    private List<Pricing> prices;
+    @Override
+    public String toString(){
+        return String.format("Ticker: %s \t, Instrument Name: %s\t, State of Incorporation: %s\t, ID: %s",
+                this.ticker, this.instrumentName, this.stateOfIncorporation, this.id);
+    }
 
 }
