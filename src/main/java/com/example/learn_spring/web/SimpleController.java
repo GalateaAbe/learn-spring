@@ -10,6 +10,7 @@ public class SimpleController {
     @Value("${spring.application.name}")
     String appName;
 
+    @SuppressWarnings("SameReturnValue")
     @RequestMapping("/")
     public String homePage(Model model) {
         model.addAttribute("appName", appName);

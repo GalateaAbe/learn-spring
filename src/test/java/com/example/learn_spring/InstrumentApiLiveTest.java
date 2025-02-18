@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class InstrumentApiLiveTest {
@@ -28,12 +27,12 @@ public class InstrumentApiLiveTest {
     }
 
     private Instrument createRandomInstrument(){
-        final Instrument instrument = Instrument.builder()
+        // TODO figure out RandomStringGenerator
+        return Instrument.builder()
                 .ticker(RandomStringUtils.randomAlphabetic(3,5)) // TODO figure out RandomStringGenerator
                 .instrumentName(RandomStringUtils.randomAlphabetic(5,16))
                 .stateOfIncorporation(RandomStringUtils.randomAlphabetic(2))
                         .build();
-        return instrument;
     }
 
     private String createInstrumentAsUri(Instrument instrument){
