@@ -1,9 +1,11 @@
 package com.example.learn_spring.instrument;
 
+import com.example.learn_spring.pricing.Pricing;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @Entity

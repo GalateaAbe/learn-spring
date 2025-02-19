@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -36,7 +37,7 @@ public class PricingServiceImpl implements PricingService {
     }
 
     @Override
-    public Pricing getPricingByTickerAndEffectiveDate(String ticker, Date effectiveDate) {
+    public Pricing getPricingByTickerAndEffectiveDate(String ticker, LocalDate effectiveDate) {
         log.debug("Finding Price by ticker and date: {} | {}", ticker, effectiveDate);
         return pricingRepository.findByTickerAndEffectiveDate(ticker, effectiveDate);
     }
@@ -44,7 +45,8 @@ public class PricingServiceImpl implements PricingService {
     @Override
     public Pricing getLatestPricingByTicker(String ticker) {
         log.debug("Finding latest Price for ticker: {}", ticker);
-        return pricingRepository.findByTickerOrderByEffectiveDateDesc(ticker).iterator().next();
+        return pricingRepository.findTopByTickerOrderByEffectiveDateDesc(ticker);
+//        return pricingRepository.findByTickerOrderByEffectiveDateDesc(ticker).iterator().next();
     }
 
     @Override

@@ -16,6 +16,8 @@ spring:
   h2:
     console:
       enabled: true
+  jackson:
+    time-zone: UTC
 
 logging:
   level:

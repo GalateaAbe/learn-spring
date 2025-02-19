@@ -1,11 +1,12 @@
 package com.example.learn_spring.pricing;
 
+import com.example.learn_spring.instrument.Instrument;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -27,7 +28,7 @@ public class Pricing implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "effective_date", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date effectiveDate;
+    private LocalDate effectiveDate;
 
     @Column
     private Double price;

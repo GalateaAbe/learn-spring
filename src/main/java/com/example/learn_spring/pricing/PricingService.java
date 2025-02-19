@@ -1,6 +1,6 @@
 package com.example.learn_spring.pricing;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public interface PricingService {
@@ -11,7 +11,7 @@ public interface PricingService {
 
     Iterable<Pricing> getPricingByTicker(String ticker);
 
-    Pricing getPricingByTickerAndEffectiveDate(String ticker, Date effectiveDate);
+    Pricing getPricingByTickerAndEffectiveDate(String ticker, LocalDate effectiveDate);
 
     Pricing getLatestPricingByTicker(String ticker);
 

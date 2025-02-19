@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -41,7 +42,7 @@ public class PricingRestController {
     @GetMapping("/ticker/{ticker}/effectiveDate/{effectiveDate}")
     public Pricing getPricingByTicker(@PathVariable("ticker") String ticker,
                                       @PathVariable("effectiveDate") @DateTimeFormat(pattern = "yyyy-MM-dd")
-                                      Date effectiveDate) {
+                                      LocalDate effectiveDate) {
         return pricingService.getPricingByTickerAndEffectiveDate(ticker, effectiveDate);
     }
 
