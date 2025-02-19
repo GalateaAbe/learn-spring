@@ -9,8 +9,8 @@ Configuration:
         disableAnsi: false
     RollingFile:
       name: "RollingFile"
-      fileName: "./logs/learn-spring-logger-log4j2.log"
-      filePattern: "./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz"
+      fileName: "./logs/instrument-practice-logger-log4j2.log"
+      filePattern: "./logs/$${date:yyyy-MM}/instrument-practice-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz"
       PatternLayout:
         pattern: '%d %p %C{1} [%t] %m%n'
         disableAnsi: false
@@ -25,5 +25,5 @@ Configuration:
         - ref: "RollingFile"
       level: "info"
     Logger:
-      name: "com.example"
+      name: "com.practice"
       level: "trace"
