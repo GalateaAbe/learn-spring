@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 'instrument_practice'
+    name: 'Spring Boot Practice App'
   thymeleaf:
     cache: false
     enabled: true
