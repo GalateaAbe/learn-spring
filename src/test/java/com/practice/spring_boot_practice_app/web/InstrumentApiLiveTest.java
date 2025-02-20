@@ -1,4 +1,4 @@
-package com.practice.spring_boot_practice_app;
+package com.practice.spring_boot_practice_app.web;
 
 import com.practice.spring_boot_practice_app.instrument.Instrument;
 import com.practice.spring_boot_practice_app.pricing.Pricing;
