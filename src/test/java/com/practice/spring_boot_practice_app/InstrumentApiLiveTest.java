@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -65,7 +65,7 @@ public class InstrumentApiLiveTest {
         log.info("INFO");
         log.debug("DEBUG");
         log.trace("TRACE");
-        assertEquals(true,true);
+        assertTrue(true);
     }
 
     @Test
@@ -82,11 +82,13 @@ public class InstrumentApiLiveTest {
 
         final Response response = RestAssured.get(location);
 
-        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
-        assertEquals(instrument.getTicker(), response.jsonPath().get("ticker"));
-        assertEquals(instrument.getInstrumentName(), response.jsonPath().get("instrumentName"));
-        assertEquals(instrument.getStateOfIncorporation(), response.jsonPath().get("stateOfIncorporation"));
-        assertEquals(instrument.getLatestPrice(), response.jsonPath().get("latestPrice"));
+        assertAll(
+                () -> assertEquals(HttpStatus.OK.value(), response.getStatusCode()),
+                () -> assertEquals(instrument.getTicker(), response.jsonPath().get("ticker")),
+                () -> assertEquals(instrument.getInstrumentName(), response.jsonPath().get("instrumentName")),
+                () -> assertEquals(instrument.getStateOfIncorporation(), response.jsonPath().get("stateOfIncorporation")),
+                () -> assertEquals(instrument.getLatestPrice(), response.jsonPath().get("latestPrice"))
+        );
 
     }
 
