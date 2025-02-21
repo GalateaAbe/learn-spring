@@ -24,6 +24,11 @@ public class InstrumentRestController {
         return instrumentService.getAllInstruments();
     }
 
+    @GetMapping("/hello")
+    public Greeting sayHello(@RequestParam(defaultValue = "World") String name){
+        return new Greeting(String.format("Hello, %s!", name));
+    }
+
     @GetMapping("/{id}")
     public Instrument findInstrumentById(@PathVariable UUID id) {
         return instrumentService.getInstrumentById(id);
@@ -77,3 +82,5 @@ public class InstrumentRestController {
     }
 
 }
+
+record Greeting(String message){}
