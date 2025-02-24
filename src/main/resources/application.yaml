@@ -27,3 +27,6 @@ logging:
 
 server:
   port: 8081
+
+astronaut:
+  baseUrl: 'http://api.open-notify.org'

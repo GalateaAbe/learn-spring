@@ -1,6 +1,8 @@
 package com.practice.spring_boot_practice_app.astronaut;
 
 import com.practice.spring_boot_practice_app.astronaut.dto.AstronautResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,8 @@ public class AstronautServiceImpl implements AstronautService {
     private final RestTemplate template;
     private final WebClient client;
 
-    public AstronautServiceImpl(RestTemplateBuilder builder){
-        this.template = builder.rootUri("http://api.open-notify.org").build();
+    public AstronautServiceImpl(@Qualifier("astronautRestTemplate") RestTemplate template){
+        this.template = template;
         this.client = WebClient.create("http://api.open-notify.org");
     }
 
@@ -33,7 +35,7 @@ public class AstronautServiceImpl implements AstronautService {
         return this.client.get()
                 .uri("/astros.json")
                 .accept(MediaType.APPLICATION_JSON)
-                . retrieve()
+                .retrieve()
                 .bodyToMono(AstronautResponse.class)
                 .block();
     }
